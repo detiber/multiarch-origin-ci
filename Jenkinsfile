@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Checkout Project Repos') {
       steps {
-        sh 'mkdir -p ${WORKSPACE}/origin'
-        dir(path: '${WORKSPACE}/origin') {
+        sh 'mkdir -p origin'
+        dir(path: 'origin') {
           git(url: 'https://github.com/openshift/origin.git', branch: 'master')
         }
         
@@ -14,8 +14,7 @@ pipeline {
       steps {
         echo 'Build'
         sh '''ls
-ls ${WORKSPACE}
-ls ${WORKSPACE}/origin'''
+ls origin'''
       }
     }
   }
